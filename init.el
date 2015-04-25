@@ -85,7 +85,7 @@
 ;; choose your own fonts, in a system dependant way
 (if (string-match "apple-darwin" system-configuration)
     (set-face-font 'default "Monaco-13")
-  (set-face-font 'default "Inconsolata-10"))
+  (set-face-font 'default "Inconsolata-13"))
 
 (global-linum-mode 1)			; add line numbers on the left
 
