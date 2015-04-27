@@ -254,6 +254,9 @@
 ;; Use switch window instead classic C-x o
 (global-set-key (kbd "C-x o") 'switch-window)
 
+;; Center the cursor on the middle of the screen
+(global-set-key (kbd "M-c") 'recenter)
+
 
 
 ;;;;;;;;;;;;;;;;;;;;;;;
