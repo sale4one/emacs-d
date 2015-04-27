@@ -257,13 +257,16 @@
 ;; Center the cursor on the middle of the screen
 (global-set-key (kbd "M-c") 'recenter)
 
+;; Elpy M-TAB is affecting ALT-TAB behaivior remap it
+(global-set-key (kbd "M-l") 'elpy-company-backend)
+
 
 
 ;;;;;;;;;;;;;;;;;;;;;;;
-;;;; KEY-CHORD BINDS ;;
+;;;; key-chord binds ;;
 ;;;;;;;;;;;;;;;;;;;;;;;
 
-;; We need to enable key-chord mode first
+;; we need to enable key-chord mode first
 (key-chord-mode 1)
 
 ;; Ace jump mode keybinds
