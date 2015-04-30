@@ -23,6 +23,14 @@
 		   (global-set-key (kbd "<C-S-left>")   'buf-move-left)
 		   (global-set-key (kbd "<C-S-right>")  'buf-move-right)))
 
+   (:name minimal-theme
+		  :website "https://github.com/anler/minimal-theme"
+		  :description "A minimalistic color theme to avoid distraction with colors. Based on monochrome theme."
+		  :type github
+		  :pkgname "anler/minimal-theme"
+		  :features (minimal-theme minimal-light-theme))
+
+
    (:name smex				; a better (ido like) M-x
 	  :after (progn
 		   (setq smex-save-file "~/.emacs.d/.smex-items")
@@ -46,8 +54,8 @@
    elpy                     ; IDE like features when editing python files
    php-mode-improved        ; Basic mode for PHP
    markdown-mode            ; Markdown is a must these days
-   emacs-powerline          ; Powerline mode bar for emacs
-   ))
+   emacs-powerline))        ; Powerline mode bar for emacs
+
 
 ;;
 ;; Some recipes require extra tools to be installed
@@ -186,7 +194,7 @@
 (setq linum-format "%4d ")
 
 ;; set color theme
-(color-theme-tango)
+;(color-theme-tango)
 
 ;; Force Emacs to use UTF-8
 (prefer-coding-system 'utf-8)
@@ -282,11 +290,14 @@
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
- '(python-shell-interpreter "python3")
- (custom-set-faces
+ '(custom-safe-themes
+   (quote
+	("b9183de9666c3a16a7ffa7faaa8e9941b8d0ab50f9aaba1ca49f2f3aec7e3be9" "cc0dbb53a10215b696d391a90de635ba1699072745bf653b53774706999208e3" default)))
+ '(nil nil t)
+ '(python-shell-interpreter "python3"))
+(custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
  )
-)
