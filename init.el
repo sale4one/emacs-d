@@ -43,6 +43,7 @@
    key-chord                ; make simple keybinds with any button
    ace-jump-mode            ; jump around the buffer easily
    expand-region            ; Expands selection to  quotes, stetements, blocks, ...
+   python-mode              ; Something to help editing python files a bit
    php-mode-improved        ; Basic mode for PHP
    markdown-mode            ; Markdown is a must these days
    ))
