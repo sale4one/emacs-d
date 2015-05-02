@@ -44,18 +44,18 @@
    ace-jump-mode            ; jump around the buffer easily
    expand-region            ; Expands selection to  quotes, stetements, blocks, ...
    python-mode              ; Something to help editing python files a bit
+   jedi                     ; Jedi based autocompletion for python files
    php-mode-improved        ; Basic mode for PHP
    markdown-mode            ; Markdown is a must these days
    ))
-
 
 ;;
 ;; Some recipes require extra tools to be installed
 ;;
 ;; Note: el-get-install requires git, so we know we have at least that.
 ;;
-(when (ignore-errors (el-get-executable-find "cvs"))
-  (add-to-list 'my:el-get-packages 'emacs-goodies-el)) ; the debian addons for emacs
+;; (when (ignore-errors (el-get-executable-find "cvs"))
+;;   (add-to-list 'my:el-get-packages 'emacs-goodies-el)) ; the debian addons for emacs
 
 (when (ignore-errors (el-get-executable-find "svn"))
   (loop for p in '(psvn    		; M-x svn-status
@@ -69,6 +69,22 @@
 
 ;; install new packages and init already installed packages
 (el-get 'sync my:el-get-packages)
+
+
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;
+;;;; PACKAGE SETTINGS ;;;;
+;;;;;;;;;;;;;;;;;;;;;;;;;;
+
+;; Setting for emacs-jedi
+(add-hook 'python-mode-hook 'jedi:setup)
+(setq jedi:complete-on-dot t)
+
+
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;;;; EMACS BUILT-INS SETTINGS ;;;;
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
 ;; on to the visual settings
 (setq inhibit-splash-screen t)		; no splash screen, thanks
@@ -253,14 +269,11 @@
 ;; Center the cursor on the middle of the screen
 (global-set-key (kbd "M-c") 'recenter)
 
-;; Elpy M-TAB is affecting ALT-TAB behaivior remap it
-(global-set-key (kbd "M-l") 'elpy-company-backend)
 
 
-
-;;;;;;;;;;;;;;;;;;;;;;;
-;;;; key-chord binds ;;
-;;;;;;;;;;;;;;;;;;;;;;;
+;;;;;;;;;;;;;;;;;;;;;;;;;
+;;;; KEY-CHORD BINDS ;;;;
+;;;;;;;;;;;;;;;;;;;;;;;;;
 
 ;; we need to enable key-chord mode first
 (key-chord-mode 1)
@@ -269,6 +282,8 @@
 (key-chord-define-global "qj" 'ace-jump-mode)
 (key-chord-define-global "ql" 'ace-jump-line-mode)
 (key-chord-define-global "qc" 'ace-jump-char-mode)
+
+
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;;; VARS ADDED BY CONFIG UTILITY ;;;;
