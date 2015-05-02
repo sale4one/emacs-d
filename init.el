@@ -45,6 +45,7 @@
    expand-region            ; Expands selection to  quotes, stetements, blocks, ...
    python-mode              ; Something to help editing python files a bit
    jedi                     ; Jedi based autocompletion for python files
+   web-mode                 ; Handy for editing web page templates
    php-mode-improved        ; Basic mode for PHP
    markdown-mode            ; Markdown is a must these days
    ))
