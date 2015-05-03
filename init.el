@@ -37,9 +37,9 @@
 ;; now set our own packages
 (setq
  my:el-get-packages
- '(el-get				    ; el-get is self-hosting
-   switch-window			; takes over C-x o
-   auto-complete			; complete as you type with overlays
+ '(el-get		    ; el-get is self-hosting
+   switch-window	    ; takes over C-x o
+   auto-complete	    ; complete as you type with overlays
    key-chord                ; make simple keybinds with any button
    ace-jump-mode            ; jump around the buffer easily
    expand-region            ; Expands selection to  quotes, stetements, blocks, ...
