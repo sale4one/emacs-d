@@ -48,6 +48,8 @@
    web-mode                 ; Handy for editing web page templates
    php-mode-improved        ; Basic mode for PHP
    markdown-mode            ; Markdown is a must these days
+   clojure-mode             ; Edit clojure files in emacs
+   cider                    ; Clojure IDE and REPL integration
    ))
 
 ;;
@@ -269,6 +271,12 @@
 
 ;; Center the cursor on the middle of the screen
 (global-set-key (kbd "M-c") 'recenter)
+
+;; Buffer move keybinds
+(global-set-key (kbd "<C-S-up>")     'buf-move-up)
+(global-set-key (kbd "<C-S-down>")   'buf-move-down)
+(global-set-key (kbd "<C-S-left>")   'buf-move-left)
+(global-set-key (kbd "<C-S-right>")  'buf-move-right)
 
 
 
