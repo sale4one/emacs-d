@@ -103,7 +103,7 @@
 ;; choose your own fonts, in a system dependant way
 (if (string-match "apple-darwin" system-configuration)
     (set-face-font 'default "Monaco-13")
-  (set-face-font 'default "Source Code Pro-11"))
+  (set-face-font 'default "Inconsolata-13"))
 
 ;; Theme to use
 (load-theme 'adwaita)
@@ -223,7 +223,7 @@
 (setq kill-whole-line t)
 
 ;; Delete the selected text by typing something else
-(delete-selection-mode 1)
+;(delete-selection-mode 1)
 
 ;; Add parents, brackets ... in pairs
 (electric-pair-mode 1)
