@@ -223,7 +223,7 @@
 (setq kill-whole-line t)
 
 ;; Delete the selected text by typing something else
-;(delete-selection-mode 1)
+(delete-selection-mode 1)
 
 ;; Add parents, brackets ... in pairs
 (electric-pair-mode 1)
