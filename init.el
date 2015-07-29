@@ -87,6 +87,10 @@
   ;; on mac, there's always a menu bar drown, don't have it empty
   (menu-bar-mode -1))
 
+;; show directory name when using same filenames for different files
+(require 'uniquify)
+(setq uniquify-buffer-name-style 'forward)
+
 ;; choose your own fonts, in a system dependant way
 (if (string-match "apple-darwin" system-configuration)
     (set-face-font 'default "Monaco-13")
