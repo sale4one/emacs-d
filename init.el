@@ -1,5 +1,7 @@
 ;; emacs kicker --- kick start emacs setup
-(require 'cl)				; common lisp goodies, loop
+
+;; common lisp goodies, loop
+(require 'cl)
 
 (add-to-list 'load-path "~/.emacs.d/el-get/el-get")
 
@@ -16,12 +18,12 @@
 ;; now set our own packages
 (setq
  my:el-get-packages
- '(el-get		            ; el-get is self-hosting
+ '(el-get		    ; el-get is self-hosting
    buffer-move              ; throw buffers around
    smex                     ; better M-x
    goto-last-change         ; moves pointer to last change
-   switch-window	        ; takes over C-x o
-   auto-complete	        ; complete as you type with overlays
+   switch-window	    ; takes over C-x o
+   auto-complete	    ; complete as you type with overlays
    key-chord                ; make simple keybinds with any button
    ace-jump-mode            ; jump around the buffer easily
    expand-region            ; expands selection to  quotes, stetements, blocks, ...
@@ -35,7 +37,7 @@
    ))
 
 ;;
-;; Some recipes require extra tools to be installed
+;; some recipes require extra tools to be installed
 ;;
 ;; Note: el-get-install requires git, so we know we have at least that.
 ;;
@@ -61,11 +63,11 @@
 ;;;; PACKAGE SETTINGS ;;;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;
 
-;; Setting for emacs-jedi
+;; setting for emacs-jedi
 (add-hook 'python-mode-hook 'jedi:setup)
 (setq jedi:complete-on-dot t)
 
-;; Smex setup
+;; smex setup
 (setq smex-save-file "~/.emacs.d/.smex-items")
 
 
@@ -90,18 +92,19 @@
     (set-face-font 'default "Monaco-13")
   (set-face-font 'default "Inconsolata-13"))
 
-;; Theme to use
+;; theme to use
 (load-theme 'adwaita)
 
-(global-linum-mode 1)			; add line numbers on the left
+;; add line numbers on the left
+(global-linum-mode 1)
 
 ;; avoid compiz manager rendering bugs
 (add-to-list 'default-frame-alist '(alpha . 100))
 
-;; Use the clipboard, pretty please, so that copy/paste "works"
+;; use the clipboard, pretty please, so that copy/paste "works"
 (setq x-select-enable-clipboard t)
 
-;; Navigate windows with M-<arrows>
+;; navigate windows with M-<arrows>
 (windmove-default-keybindings 'meta)
 (setq windmove-wrap-around t)
 
@@ -119,7 +122,7 @@
 ;; (autoload 'ansi-color-for-comint-mode-on "ansi-color" nil t)
 ;; (add-hook 'shell-mode-hook 'ansi-color-for-comint-mode-on)
 
-;; If you do use M-x term, you will notice there's line mode that acts like
+;; if you do use M-x term, you will notice there's line mode that acts like
 ;; emacs buffers, and there's the default char mode that will send your
 ;; input char-by-char, so that curses application see each of your key
 ;; strokes.
@@ -130,8 +133,8 @@
 (define-key term-raw-map  (kbd "C-'") 'term-line-mode)
 (define-key term-mode-map (kbd "C-'") 'term-char-mode)
 
-;; Have C-y act as usual in term-mode, to avoid C-' C-y C-'
-;; Well the real default would be C-c C-j C-y C-c C-k.
+;; have C-y act as usual in term-mode, to avoid C-' C-y C-'
+;; well the real default would be C-c C-j C-y C-c C-k.
 (define-key term-raw-map  (kbd "C-y") 'term-paste)
 
 ;; use ido for minibuffer completion
@@ -167,65 +170,65 @@
 		       (if (frame-parameter nil 'fullscreen) nil 'fullboth)))
 (global-set-key [f11] 'fullscreen)
 
-;; Use y and n to answer prompts
+;; use y and n to answer prompts
 (fset 'yes-or-no-p 'y-or-n-p)
 
-;; Show battery status (Laptop only)
+;; show battery status (Laptop only)
 (display-battery-mode 1)
 
-;; Remove scratch buffer message
+;; remove scratch buffer message
 (setq initial-scratch-message "")
 
-;; Set scroll step to one line
+;; set scroll step to one line
 (setq scroll-step 1)
 
-;; Disable sound warnings, only flash screen on error
+;; disable sound warnings, only flash screen on error
 (setq visible-bell t)
 
-;; Set the default width and height of the frame
+;; set the default width and height of the frame
 (add-to-list 'default-frame-alist '(width . 85))
 (add-to-list 'default-frame-alist '(height . 25))
 
-;; Disable blinking cursor
+;; disable blinking cursor
 (blink-cursor-mode -1)
 
-;; Linum mode number format
+;; linum mode number format
 (setq linum-format "%4d ")
 
-;; Force Emacs to use UTF-8
+;; force Emacs to use UTF-8
 (prefer-coding-system 'utf-8)
 (set-default-coding-systems 'utf-8)
 (set-terminal-coding-system 'utf-8)
 (set-keyboard-coding-system 'utf-8)
 
-;; Default tab size
+;; default tab size
 (setq tab-width 4)
 
 ;; C-n past end of file adds new lines
 (setq next-line-add-newlines 1)
 
-;; Kill whole line(remove the new line too)
+;; kill whole line(remove the new line too)
 (setq kill-whole-line t)
 
-;; Delete the selected text by typing something else
+;; delete the selected text by typing something else
 (delete-selection-mode 1)
 
-;; Add parents, brackets ... in pairs
+;; add parents, brackets ... in pairs
 (electric-pair-mode 1)
 
-;; Show matching parens
+;; show matching parens
 (show-paren-mode 1)
 
-;; Delete the white space before saving the file
+;; delete the white space before saving the file
 (add-hook 'before-save-hook 'delete-trailing-whitespace)
 
-;; Disable creating of backup files
+;; disable creating of backup files
 (setq make-backup-files nil)
 
-;; Disable creation of auto-save files
+;; disable creation of auto-save files
 (setq auto-save-default nil)
 
-;; Disable file locks
+;; disable file locks
 (setq create-lockfiles nil)
 
 
@@ -234,36 +237,36 @@
 ;;;; KEYBINDS ;;;;
 ;;;;;;;;;;;;;;;;;;
 
-;; Comment and uncomment region
+;; comment and uncomment region
 (global-set-key (kbd "C-x C-;") 'comment-or-uncomment-region)
 
-;; Kill region
+;; kill region
 (global-set-key (kbd "C-x C-k") 'kill-region)
 
-;; Change the  window size verticaly
+;; change the  window size verticaly
 (global-set-key (kbd "<f9>") 'shrink-window)
 (global-set-key (kbd "S-<f9>") 'enlarge-window)
 
-;; Shrink the window size horizontaly
+;; shrink the window size horizontaly
 (global-set-key (kbd "<f10>") 'shrink-window-horizontally)
 (global-set-key (kbd "S-<f10>") 'enlarge-window-horizontally)
 
-;; Expand region
+;; expand region
 (global-set-key (kbd "C-x e") 'er/expand-region)
 
-;; Use switch window instead classic C-x o
+;; use switch window instead classic C-x o
 (global-set-key (kbd "C-x o") 'switch-window)
 
-;; Center the cursor on the middle of the screen
+;; center the cursor on the middle of the screen
 (global-set-key (kbd "M-c") 'recenter)
 
-;; Buffer move keybinds
+;; buffer move keybinds
 (global-set-key (kbd "<M-up>")     'buf-move-up)
 (global-set-key (kbd "<M-down>")   'buf-move-down)
 (global-set-key (kbd "<M-left>")   'buf-move-left)
 (global-set-key (kbd "<M-right>")  'buf-move-right)
 
-;; Smex
+;; smex
 (global-set-key (kbd "M-x") 'smex)
 (global-set-key (kbd "M-X") 'smex-major-mode-commands)
 
@@ -279,7 +282,7 @@
 ;; we need to enable key-chord mode first
 (key-chord-mode 1)
 
-;; Ace jump mode keybinds
+;; ace jump mode keybinds
 (key-chord-define-global "qj" 'ace-jump-mode)
 (key-chord-define-global "ql" 'ace-jump-line-mode)
 (key-chord-define-global "qc" 'ace-jump-char-mode)
