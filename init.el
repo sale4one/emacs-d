@@ -112,6 +112,11 @@
 (windmove-default-keybindings 'meta)
 (setq windmove-wrap-around t)
 
+;; save the place where pointer was when killing a buffer
+;; and return when opening the same file
+(require 'saveplace)
+(setq-default save-place t)
+
 ;; winner-mode provides C-<left> to get back to previous window layout
 (winner-mode 1)
 
