@@ -162,7 +162,7 @@
 ;; week (or day) action.
 (global-set-key (kbd "C-x C-b") 'ido-switch-buffer)
 (global-set-key (kbd "C-x C-c") 'ido-switch-buffer)
-(global-set-key (kbd "C-x B") 'ibuffer)
+(global-set-key (kbd "C-x b") 'ibuffer)
 
 ;; have vertical ido completion lists
 (setq ido-decorations
