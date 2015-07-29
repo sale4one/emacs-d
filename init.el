@@ -282,6 +282,8 @@
 ;; goto-last-change
 (global-set-key (kbd "C-c l") 'goto-last-change)
 
+;; hippie expand instead of abbrev
+(global-set-key (kbd "M-/") 'hippie-expand)
 
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;
