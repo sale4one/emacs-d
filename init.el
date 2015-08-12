@@ -94,7 +94,7 @@
 ;; choose your own fonts, in a system dependant way
 (if (string-match "apple-darwin" system-configuration)
     (set-face-font 'default "Monaco-13")
-  (set-face-font 'default "Anonymous Pro-13")) ; or Inconsolata on Fedora
+  (set-face-font 'default "Liberation Mono-13"))
 
 ;; theme to use
 (load-theme 'adwaita)
